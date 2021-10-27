@@ -37,3 +37,11 @@ But, using a docker, Redis can be installed more easily.
 
 ![Screen Shot 2021-10-26 at 11 02 04 PM](https://user-images.githubusercontent.com/44861205/138894975-3ada5259-aa47-4ec2-b083-568b2a01bd3c.png)
 
+## What is a docker?
+
+> Docker is an open platform for developing, shipping, and running applications.
+
+Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. 
+
+
+
