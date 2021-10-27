@@ -44,4 +44,11 @@ But, using a docker, Redis can be installed more easily.
 Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. 
 
 
+## The Docker Dashboard
+
+Docker Dashboard gives you a quick view of  the containers running on your machine.
+
+It gives you quick access to container logs, lets you get a shell inside the container, and lets you easily manage container lifecycle(stop, remove, etc..)
+
+![Screen Shot 2021-10-27 at 9 18 56 PM](https://user-images.githubusercontent.com/44861205/139064066-0abc4f1b-c440-4587-8ab8-a64df70289e7.png)
 
