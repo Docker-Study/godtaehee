@@ -65,3 +65,100 @@ That isolation leverages [kernel namespaces and croups](https://medium.com/@sasc
 ## What is a container image?
 
 When running a container, it uses an isolated filesystem. This custom filesystem is provided by a container image. Since the image contains the container’s filesystem, it must contain everything needed to run an application - all dependencies, configuration, scripts, binaries, etc. The image also contains other configuration for the container, such as environment variables, a default command to run, and other metadata.
+
+
+## Docker Container Lifecycle
+
+![Screen Shot 2021-10-28 at 7 38 41 PM](https://user-images.githubusercontent.com/44861205/139239954-384fb9d6-37ac-42d7-8381-e89372d63798.png)
+
+
+### docker create
+
+#### Usage
+
+```shell
+docker create <Image Name>
+```
+
+#### Description
+
+Create a new container
+
+You will get container id After this command is executed
+
+
+### docker start
+
+#### Usage
+
+```shell
+docker start <Container Id/Name>
+```
+
+#### Description
+
+Run a command in a new container
+
+### docker run
+
+#### Usage
+
+```shell
+docker run <Image Name>
+```
+
+#### Description
+
+`docker run` can be divided two command.
+
+> `docker run <Image Name>` = `docker create <Image Name>` + `docker start <Container Id/Name>` 
+
+### docker stop VS docker kill
+
+`docker stop` is more graceful than `docker kill`
+
+See below official docs' description about `docker stop`
+
+
+> The main process inside the container will receive SIGTERM, and after a grace period, SIGKILL. The first signal can be changed with the STOPSIGNAL instruction in the container’s Dockerfile, or the --stop-signal option to docker run.
+
+In contrast, You can see official docs' description about `docker kill`
+
+> The docker kill subcommand kills one or more containers. The main process inside the container is sent SIGKILL signal (default)
+
+
+### docker rm <Id/Name>
+
+> [!IMPORTANT] You can remove container After container is stopped
+
+
+#### Remove container
+
+If you want to remove all container, Use **docker rm `docker ps -a -q`**
+
+You can also use `docker container prune`
+
+#### Remove image
+
+> [!IMPORTANT] You can remove image After container is stopped. For example, If you create A container using B Image, B Image can't be removed Until A container is stopped. In other words, Container and Image have dependency each other
+
+You can remove image `docker rmi <ImageId>`
+
+You can also use `docker image rm`
+
+### Remove container, image, network at once
+
+Use `docker system prune`
+
+When you use docker for a long time, there is possibility which useless docker's file occupies capacity in your hdd
+
+So I suggest you that you use `docker system prune` command when you don't use docker anymore
+
+This command don't remove container which is been executed
+
+### docker exec <Container Id>
+
+You can send command to container which is already executed
+
+
+
